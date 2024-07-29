@@ -1,0 +1,16 @@
+{
+  "transactions": [
+    {
+      "rpc": "https://avalanche-fuji.infura.io/v3/79d26d2584924ff79c6ef63bb76113f6"
+    },
+    {
+      "rpc": "https://avalanche-fuji.infura.io/v3/79d26d2584924ff79c6ef63bb76113f6"
+    },
+    {
+      "rpc": "https://avalanche-fuji.infura.io/v3/79d26d2584924ff79c6ef63bb76113f6"
+    },
+    {
+      "rpc": "https://avalanche-fuji.infura.io/v3/79d26d2584924ff79c6ef63bb76113f6"
+    }
+  ]
+}
