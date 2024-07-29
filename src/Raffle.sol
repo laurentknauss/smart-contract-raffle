@@ -199,6 +199,11 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
     /**
      * Getter Functions
      */
+
+    function getContractAddress() public view returns (address) {
+                return address(this); 
+    }
+
     function getRaffleState() public view returns (RaffleState) {
         return s_raffleState;
     }
