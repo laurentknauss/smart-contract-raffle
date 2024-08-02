@@ -12,9 +12,13 @@ import {LinkToken} from "../../test/mocks/LinkToken.sol";
 import {CodeConstants} from "../../script/HelperConfig.s.sol";
 
 contract RaffleTest is Test, CodeConstants {
-    /*//////////////////////////////////////////////////////////////
+
+    /*
+    //////////////////////////////////////////////////////////////
                                  ERRORS
-    //////////////////////////////////////////////////////////////*/
+    //////////////////////////////////////////////////////////////
+    */
+    
     event RequestedRaffleWinner(uint256 indexed requestId);
     event RaffleEnter(address indexed player);
     event WinnerPicked(address indexed player);

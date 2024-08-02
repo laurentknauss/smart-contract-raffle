@@ -34,7 +34,10 @@ import {AutomationCompatibleInterface} from "@chainlink/contracts/src/v0.8/inter
  * @dev This implements the Chainlink VRF Version 2
  */
 contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
-    /* Errors */
+    
+    /*//////////////////////////////////////////////////////////////
+                                 ERRORS
+    //////////////////////////////////////////////////////////////*/
     error Raffle__UpkeepNotNeeded(
         uint256 currentBalance,
         uint256 numPlayers,
@@ -44,21 +47,25 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
     error Raffle__SendMoreToEnterRaffle();
     error Raffle__RaffleNotOpen();
 
-    /* Type declarations */
+
     enum RaffleState {
         OPEN,
         CALCULATING
     }
 
-    /* State variables */
-    // Chainlink VRF Variables
+    
+    /*//////////////////////////////////////////////////////////////
+                            STATE  VARIABLES 
+    //////////////////////////////////////////////////////////////*/
     uint256 private immutable i_subscriptionId;
     bytes32 private immutable i_gasLane;
     uint32 private immutable i_callbackGasLimit;
     uint16 private constant REQUEST_CONFIRMATIONS = 3;
     uint32 private constant NUM_WORDS = 1;
 
-    // Lottery Variables
+    /*//////////////////////////////////////////////////////////////
+                            LOTTERY VARIABLES 
+    //////////////////////////////////////////////////////////////*/    
     uint256 private immutable i_interval;
     uint256 private immutable i_entranceFee;
     uint256 private s_lastTimeStamp;
@@ -66,12 +73,15 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
     address payable[] private s_players;
     RaffleState private s_raffleState;
 
-    /* Events */
+    
+    /*//////////////////////////////////////////////////////////////
+                                  EVENTS  
+    //////////////////////////////////////////////////////////////*/  
     event RequestedRaffleWinner(uint256 indexed requestId);
     event RaffleEnter(address indexed player);
     event WinnerPicked(address indexed player);
 
-    /* Functions */
+    
     constructor(
         uint256 subscriptionId,
         bytes32 gasLane, // keyHash
@@ -196,12 +206,11 @@ contract Raffle is VRFConsumerBaseV2Plus, AutomationCompatibleInterface {
         }
     }
 
-    /**
-     * Getter Functions
-     */
-
+    /*//////////////////////////////////////////////////////////////
+                                 GETTERS  
+    //////////////////////////////////////////////////////////////*/
     function getContractAddress() public view returns (address) {
-                return address(this); 
+        return address(this);
     }
 
     function getRaffleState() public view returns (RaffleState) {
